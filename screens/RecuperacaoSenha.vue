@@ -1,16 +1,30 @@
 <template>
-    <view>
+    <view class="container">
+      <text>Página de Recuperação de Senha</text>
+
+      <text>Email</text>
+      <text-input
+          :style="{height: 40, width: 500, borderColor: 'gray', borderWidth: 1}"
+          v-model="email"
+      />
+      <button class="btn-recuperar" title="Recuperar" color="black"></button>
+      <button class="btn-voltar" title="Voltar" color="blue" @press="changeRoute"></button>
     </view>
 </template>
 
 <script>
 export default {
+    data(){
+      return {
+        email: null,
+      }
+    },
     props: {
         navigation: { type: Object }
     },
     methods: {
         changeRoute() {
-        this.navigation.navigate('');
+        this.navigation.goBack()
         },
     }, 
 }

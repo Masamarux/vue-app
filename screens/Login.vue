@@ -1,20 +1,19 @@
 <template>
-    <view>
+    <view class="container">
         <text>Email</text>
         <text-input
             :style="{height: 40, width: 500, borderColor: 'gray', borderWidth: 1}"
-            v-model="loginEmail"
+            v-model="usuario.email"
         />
 
         <text>Senha</text>
         <text-input
             :style="{height: 40, width: 500, borderColor: 'gray', borderWidth: 1}"
-            v-model="loginSenha"
+            v-model="usuario.senha"
         />
-
-        <text id="a">Esqueci minha senha</text>
+        <button class="btn-login" title="Esqueci minha senha" color="blue" @press="gotoRecuperacao"></button>
         <button
-            :on-press="loginUsuario"
+            :on-press="fazerLogin"
             title="Logar"
             color="#0000FF"
             accessibility-label=""
@@ -23,14 +22,27 @@
 </template>
 
 <script>
+import LoginService from "../services/Login.service";
+
 export default {
+    data() {
+        return {
+            usuario: {
+                email: null,
+                senha: null,
+            }
+        }
+    },
     props: {
         navigation: { type: Object }
     },
     methods: {
-        changeRoute() {
-        this.navigation.navigate('');
+        gotoRecuperacao() {
+            this.navigation.navigate('RecuperacaoSenha');
         },
+        fazerLogin() {
+            LoginService.postLogin(this.usuario);
+        }
     }, 
 }
 </script>

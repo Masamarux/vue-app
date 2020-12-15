@@ -23,7 +23,7 @@ const StackNavigator = createStackNavigator(
     RecuperacaoSenha: RecuperacaoSenhaScreen,
   },
   {
-    initialRouteName: 'Painel',
+    initialRouteName: 'Cadastro',
   }
 );
 

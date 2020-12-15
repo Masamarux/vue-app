@@ -37,7 +37,6 @@ export default {
             senha: null,
             celular: null,
         },
-        resp: null,
         }
     },
     props: {
@@ -48,9 +47,8 @@ export default {
             this.navigation.navigate('Login');
         },
         async cadastrarUsuario() {
-            this.resp = await CadastroService.postCadastro(this.usuario);
+            const resp = await CadastroService.postCadastro(this.usuario);
             console.log(resp);
-            //this.exibirAlerta(resp.status);
         },
         exibirAlerta(resp) {
             if(resp == 200) {

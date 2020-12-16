@@ -21,7 +21,8 @@
     "react-native-web": "~0.13.12",
     "vue-native-core": "^0.1.4",
     "vue-native-helper": "^0.1.4",
-    "vue-native-router": "^0.2.0"
+    "vue-native-router": "^0.2.0",
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

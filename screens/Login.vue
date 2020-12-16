@@ -1,16 +1,10 @@
 <template>
     <view class="container">
         <text>Email</text>
-        <text-input
-            :style="{height: 40, width: 500, borderColor: 'gray', borderWidth: 1}"
-            v-model="usuario.email"
-        />
+        <text-input class="input" v-model="usuario.email"/>
 
         <text>Senha</text>
-        <text-input
-            :style="{height: 40, width: 500, borderColor: 'gray', borderWidth: 1}"
-            v-model="usuario.senha"
-        />
+        <text-input class="input" v-model="usuario.senha"/>
         <button class="btn-login" title="Esqueci minha senha" color="blue" @press="gotoRecuperacao"></button>
         <button
             :on-press="fazerLogin"
@@ -28,8 +22,8 @@ export default {
     data() {
         return {
             usuario: {
-                email: "userdemo@demo.com.br",
-                senha: "minhasenha",
+                email: null,
+                senha: null,
             }
         }
     },
@@ -68,5 +62,12 @@ export default {
 }
 .text-color-primary {
   color: blue;
+}
+.input {
+  width: 98%;
+  margin: 10px 10px;
+  border-radius: 1px;
+  padding: 10px;
+  border-width: 1;
 }
 </style>

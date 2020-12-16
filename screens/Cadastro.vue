@@ -47,12 +47,16 @@ export default {
             this.navigation.navigate('Login');
         },
         async cadastrarUsuario() {
-            const resp = await CadastroService.postCadastro(this.usuario);
-            console.log(resp);
+            let resp = await CadastroService.postCadastro(this.usuario);
+            this.exibirAlerta(resp)
         },
         exibirAlerta(resp) {
-            if(resp == 200) {
+            if(resp == true) {
                 alert("O cadastro foi bem sucedido!");
+                this.usuario.nome = null;
+                this.usuario.email = null;
+                this.usuario.senha = null;
+                this.usuario.celular = null;
             }else{
                 alert("Ocorreu algum problema no cadastro.");
             }

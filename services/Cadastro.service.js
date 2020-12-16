@@ -11,11 +11,11 @@ export default class CadastroService {
             }
         })
 
-        if(status == 200) {
-            console.log("entro no if status true" + status);
+        if(status === 200) {
+            //console.log("entro no if status true" + status);
             return true;
         } else {
-            console.log("entro no if status false" + status);
+            //console.log("entro no if status false" + status);
             return false;
         }
     }

@@ -28,8 +28,8 @@ export default {
     data() {
         return {
             usuario: {
-                email: null,
-                senha: null,
+                email: "userdemo@demo.com.br",
+                senha: "minhasenha",
             }
         }
     },
@@ -40,8 +40,20 @@ export default {
         gotoRecuperacao() {
             this.navigation.navigate('RecuperacaoSenha');
         },
-        fazerLogin() {
-            LoginService.postLogin(this.usuario);
+        gotoPainel() {
+            this.navigation.navigate('Painel');
+        },
+        async fazerLogin() {
+            let resp = await LoginService.postLogin(this.usuario);
+            this.verificarLogin(resp);
+        },
+        verificarLogin(resp) {
+            if(resp == true) {
+                this.gotoPainel();
+
+            }else{
+                alert("Ocorreu algum problema no login, corrija o email ou/e senha.");
+            }
         }
     }, 
 }

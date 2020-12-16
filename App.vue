@@ -3,6 +3,7 @@
 </template>
 
 <script>
+console.disableYellowBox = true;
 import {
   createAppContainer,
   createStackNavigator,
